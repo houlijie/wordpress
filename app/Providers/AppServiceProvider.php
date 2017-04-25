@@ -13,6 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //只绑定事物到服务容器，不要做别的事情
+        //eg. $this->app->singleton('test', function($app){  return new Connection(config('test'))    })
+    }
+
+    public function boot() {
+        //在服务提供者中注册视图
     }
 }
