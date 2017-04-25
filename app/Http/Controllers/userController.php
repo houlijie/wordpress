@@ -8,9 +8,14 @@ use Illuminate\Support\Facades\Log;
 use Crypt;
 use App\User;
 use DB;
+use Event;
 
 class userController extends Controller
 {
+    public function userCreate(Request $request){
+        Event::fire(new userCreateEvent);//or event(new userCreateEvent);
+    }
+
     public function updateUserPwd(Request $request, $id) {
         try
         {   
