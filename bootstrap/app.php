@@ -48,6 +48,25 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+//predis
+$app->singleton(
+    Illuminate\Redis\RedisServiceProvider::class
+);
+
+/**
+ *
+ * 使用phpredis
+ *
+ *
+$app->singleton('redis', function(){
+    $redis = new Redis;
+    $redis->pconnect('127.0.0.1');
+    return $redis;
+});
+unset($app->availableBindings['redis']);
+|
+*/
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware

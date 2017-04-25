@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use DB;
 
 class userController extends Controller
 {
@@ -28,7 +29,6 @@ class userController extends Controller
      *
      */
     public function userInfo($userId) {
-
         return User::findorFail($userId);
     }
 
