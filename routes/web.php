@@ -18,6 +18,8 @@ $app->get('/', function () use ($app) {
 
 $app->get('user/{id}', 'userController@userInfo');
 
+$app->get('updateUserPwd/{id}', 'userController@updateUserPwd');
+
 /**
  *
  * 响应方式

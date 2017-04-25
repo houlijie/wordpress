@@ -3,18 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Support\Facades\Log;
 use Crypt;
 use App\User;
 use DB;
 
 class userController extends Controller
 {
-    public function updatePsw(Request $request, $id) {
-        $user = User::findorFail($id);
+    public function updateUserPwd(Request $request, $id) {
+        try
+        {   
+            Log::info('this is a test message');
 
-        $user->fil([
-            'secret' => Crypt::encrypt($request->secret)
-        ])->save();
+            if(!user::find($id)){
+                throw new Exception("用户不存在",1);
+            }
+    
+            return $user->fill([
+                'secret' => Crypt::encrypt($request->secret)
+            ])->save();
+        }
+        catch(Exception $e)
+        {
+            echo $e->getMessage();
+        }
     }
 
     /**
