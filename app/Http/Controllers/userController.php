@@ -3,16 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Crypt;
 use App\User;
 use DB;
 
 class userController extends Controller
 {
-    public function update(Request $request){
-        $name = $request->input('id', '2');
-        $parentName = $request->input('user.parent.name');
+    public function updatePsw(Request $request, $id) {
+        $user = User::findorFail($id);
 
+        $user->fil([
+            'secret' => Crypt::encrypt($request->secret)
+        ])->save();
     }
+
     /**
      *获取用户列表
      *
