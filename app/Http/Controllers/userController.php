@@ -10,6 +10,7 @@ use App\User;
 use DB;
 use Event;
 use Illuminate\Session;
+use Validator;
 
 class userController extends Controller
 {
@@ -20,10 +21,25 @@ class userController extends Controller
     }
 
     public function store(Request $request) {
-        $this->validate($request, [
-            'user_name' => 'required|max:255',
-            'email' => 'required',
-        ]);
+        // $this->validate($request, [
+        //     'user_name' => 'required|max:255',
+        //     'email' => 'required',
+        // ]);
+
+        //也可以使用Validator门面
+        $Validator = Validator::make($request->all(), 
+            [
+                'user_name' => 'required|max:255|min:2',
+                'email' => 'required'
+            ],
+            [
+                'required' => 'the :attribute 必填!',  
+                'user_name' => [
+                    'max' => '姓名长度不能超过255个字符！',
+                    'min' => '姓名长度不能低于2个字符！',
+                ];
+            ],
+        );
     }
 
     public function updateUserPwd(Request $request, $id) {
