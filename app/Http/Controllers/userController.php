@@ -37,8 +37,8 @@ class userController extends Controller
                 'user_name' => [
                     'max' => '姓名长度不能超过255个字符！',
                     'min' => '姓名长度不能低于2个字符！',
-                ];
-            ],
+                ],
+            ]
         );
     }
 
