@@ -17,6 +17,8 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get('user/create', 'userController@create');
+$app->post('user/store', 'userController@store');
+
 $app->get('user/{id}', ['uses'=>'userController@userInfo']);
 
 $app->get('updateUserPwd/{id}', 'userController@updateUserPwd');

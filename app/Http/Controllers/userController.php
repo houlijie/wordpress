@@ -19,6 +19,13 @@ class userController extends Controller
         return view('user.create');
     }
 
+    public function store(Request $request) {
+        $this->validate($request, [
+            'user_name' => 'required|max:255',
+            'email' => 'required',
+        ]);
+    }
+
     public function updateUserPwd(Request $request, $id) {
         try
         {   

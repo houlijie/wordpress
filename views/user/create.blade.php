@@ -4,6 +4,19 @@
     <title>user create</title>
 </head>
 <body>
+
+    @if (isset($errors) && count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($error->all() as $error)
+            <li>
+                {{ $error }}
+            </li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <div class="container">
         <table>
             <tr>
