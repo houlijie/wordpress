@@ -16,6 +16,7 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
+$app->get('user/create', 'userController@create');
 $app->get('user/{id}', ['uses'=>'userController@userInfo']);
 
 $app->get('updateUserPwd/{id}', 'userController@updateUserPwd');

@@ -13,8 +13,10 @@ use Illuminate\Session;
 
 class userController extends Controller
 {
-    public function userCreate(Request $request){
-        Event::fire(new userCreateEvent);//or event(new userCreateEvent);
+    public function create(Request $request){
+        // Event::fire(new userCreateEvent);//or event(new userCreateEvent);
+
+        return view('user.create');
     }
 
     public function updateUserPwd(Request $request, $id) {
