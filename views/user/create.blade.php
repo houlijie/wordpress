@@ -30,6 +30,16 @@
 
     <div class="container">
         <div class="content">
+            <div id="wordreverse">
+                <p>original massage: @{{ message }}</p> <br />
+                <p>reversed message: @{{ reversedMessage}}</p>
+            </div>
+        </div>
+    </div>
+    <hr /><br />
+
+    <div class="container">
+        <div class="content">
             <div class="title1">
                 <ul>
                      <!-- 渲染页面 -->
@@ -82,6 +92,18 @@
                 { text: 'Learn Vue.js' },
                 { text: 'At LaravelAcademy.org' }
             ]
+        }
+    })
+
+    new Vue({
+        el: '#wordreverse',
+        data: {
+            message: 'lumen'
+        },
+        computed: {
+            reversedMessage: function(){
+                return this.message.split('').reverse().join('')
+            }
         }
     })
 </script>
