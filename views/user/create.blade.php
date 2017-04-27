@@ -31,7 +31,9 @@
     <div class="container">
         <div class="content">
             <div id="wordreverse">
-                <p>original massage: @{{ message }}</p> <br />
+                <!-- <p>original massage: @{{ message }}</p> -->
+                <input v-model="message">
+                 <br />
                 <p>reversed message: @{{ reversedMessage}}</p><br />
                 <!-- <p>method reversed message: @{{ reversedMessage()}}</p> -->
             </div>
@@ -101,11 +103,14 @@
         data: {
             message: 'lumen'
         },
+        //计算属性是基于他们的依赖进行缓存的，只有在他的相关以来发生改变时才会重新求值
         computed: {
             reversedMessage: function(){
                 return this.message.split('').reverse().join('')
             }
         }
+
+        //只要发生重新渲染，method就会执行
         // methods: {
         //     reversedMessage: function(){
         //         return this.message.split('').reverse().join('')
