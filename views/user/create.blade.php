@@ -16,13 +16,31 @@
         </ul>
     </div>
     @endif
+
     <div class="container">
         <div class="content">
             <div class="title">
+             <!-- 双向绑定 -->
                 <p>@{{ message }}</p>
+                欢迎语： <input v-model="message">
             </div>
         </div>
     </div>
+    <hr /><br />
+
+    <div class="container">
+        <div class="content">
+            <div class="title1">
+                <ul>
+                     <!-- 渲染页面 -->
+                    <li v-for="todo in todos">
+                    @{{ todo.text }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr /><br />
 
     <div class="container">
         <table>
@@ -55,6 +73,18 @@
             message: 'hello lumen !'
         }
     })
+
+    new Vue({
+        el: '.title1',
+        data: {
+            todos: [
+                { text: 'Learn Laravel' },
+                { text: 'Learn Vue.js' },
+                { text: 'At LaravelAcademy.org' }
+            ]
+        }
+    })
+</script>
 </script>
 
 
