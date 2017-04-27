@@ -16,6 +16,13 @@
         </ul>
     </div>
     @endif
+    <div class="container">
+        <div class="content">
+            <div class="title">
+                <p>@{{ message }}</p>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <table>
@@ -40,4 +47,15 @@
         <button type="submit">提交</button>
     </div>
 </body>
+<script type="text/javascript" src="{{url('js/vue.js')}}"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '.title',
+        data: {
+            message: 'hello lumen !'
+        }
+    })
+</script>
+
+
 </html>
