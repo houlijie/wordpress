@@ -32,7 +32,8 @@
         <div class="content">
             <div id="wordreverse">
                 <p>original massage: @{{ message }}</p> <br />
-                <p>reversed message: @{{ reversedMessage}}</p>
+                <p>reversed message: @{{ reversedMessage}}</p><br />
+                <!-- <p>method reversed message: @{{ reversedMessage()}}</p> -->
             </div>
         </div>
     </div>
@@ -105,6 +106,11 @@
                 return this.message.split('').reverse().join('')
             }
         }
+        // methods: {
+        //     reversedMessage: function(){
+        //         return this.message.split('').reverse().join('')
+        //     }
+        // }
     })
 </script>
 </script>
