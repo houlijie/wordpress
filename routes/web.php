@@ -23,6 +23,16 @@ $app->get('user/{id}', ['uses'=>'userController@userInfo']);
 
 $app->get('updateUserPwd/{id}', 'userController@updateUserPwd');
 
+$app->group(['prefix' => 'api/v1'], function($app) {
+
+    $app->get('articles/', 'ArticleController@index');
+    $app->get('article/{id}', 'ArticleController@article');
+    $app->post('article/{id}', 'ArticleController@createArticle');
+    $app->put('article/{id}', 'ArticleController@updateArticle');
+    $app->patch('article/{id}', 'ArticleController@modifyArticle');
+    $app->delete('article/{id}', 'ArticleController@deleteArticle');
+});
+
 /**
  *
  * 响应方式
