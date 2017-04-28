@@ -71,7 +71,8 @@
         lastname: 'Bar',
         fullname: 'Foo Bar'
       },
-      //用来观察vue实例上的数据变动，watch允许执行异步操作，限制我们执行该操作的频率
+      //用来观察vue实例上的数据变动，一般使用compute 比较方便
+      //watch允许执行异步操作，限制我们执行该操作的频率
       //在获得最终结果前设置中间状态，compute不行
       watch: {
         firstname: function (val) {
