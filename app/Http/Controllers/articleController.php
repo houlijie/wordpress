@@ -23,17 +23,17 @@ class ArticleController extends Controller
         return response()->json($article);
     }
 
-    public function modifyArticle(Request $request, $id){
+    public function modifyArticle(Request $request, $id) {
         $article = Article::find($id);
-        $article->title = $request->input('title', $article->title);
-        $article->content = $request->input('content', $article->content);
+        $article->title = $request->header('title', $article->title);
+        $article->content = $request->header('content', $article->content);
+
         $article->save();
 
         return response()->json($article);
     }
 
     public function deleteArticle(Request $request, $id) {
-        // try{
         try{
             $article = Article::find($id);
             if(!$article){
@@ -64,7 +64,9 @@ class ArticleController extends Controller
         $link = [
             'rel' => url('22'),
             'href' => url('api/v1/articles'),
-        ]
+            'title' => 'article api list',
+        ];
+
         return response()->json($link);
     }
 }
