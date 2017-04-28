@@ -17,7 +17,7 @@ class userController extends Controller
     public function create(Request $request){
         // Event::fire(new userCreateEvent);//or event(new userCreateEvent);
 
-        return view('user.create');
+        return view('vue.watch');
     }
 
     public function store(Request $request) {

@@ -56,6 +56,7 @@
     <hr /><br />
 
     <div class="container">
+    <form action="user/create" v-on:submit="onSubmit">
         <table>
             <tr>
                 <th>用户名：</th>
@@ -75,6 +76,8 @@
                 <td><input type="text" name="email"></td>
             </tr>
         </table>
+    </form>
+        
         <button type="submit">提交</button>
     </div>
 </body>
