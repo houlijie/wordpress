@@ -27,7 +27,7 @@ $app->group(['prefix' => 'api/v1'], function($app) {
 
     $app->get('articles/', 'ArticleController@index');
     $app->get('article/{id}', 'ArticleController@article');
-    $app->post('article/{id}', 'ArticleController@createArticle');
+    $app->post('article', 'ArticleController@createArticle');
     $app->put('article/{id}', 'ArticleController@updateArticle');
     $app->patch('article/{id}', 'ArticleController@modifyArticle');
     $app->delete('article/{id}', 'ArticleController@deleteArticle');

@@ -25,8 +25,8 @@ class ArticleController extends Controller
 
     public function modifyArticle(Request $request, $id) {
         $article = Article::find($id);
-        $article->title = $request->header('title', $article->title);
-        $article->content = $request->header('content', $article->content);
+        $article->title = $request->input('title', $article->title);
+        $article->content = $request->input('content', $article->content);
 
         $article->save();
 
