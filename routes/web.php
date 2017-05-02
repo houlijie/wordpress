@@ -16,6 +16,8 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
+$app->get('home', 'HomeController@index');
+
 $app->get('user/create', 'userController@create');
 $app->post('user/store', 'userController@store');
 

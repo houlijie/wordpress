@@ -79,7 +79,7 @@ unset($app->availableBindings['redis']);
 */
 
 $app->middleware([
-   App\Http\Middleware\ExampleMiddleware::class
+    // Illuminate\Session\Middleware\StartSession::class,
 ]);
 
 $app->routeMiddleware([
