@@ -12,6 +12,14 @@ use Illuminate\Http\Response;
 |
 */
 
+$api = app('Dingo\Api\Routing\Router');
+$api->version('v1',['namespace'=>'App\Http\Controllers'], function($api) {
+    // $api->group([], function($api) {
+    $api->get('article/{id}', 'ArticleController@article');
+    // $api->post('ar')
+    // })
+});
+
 $app->get('/', function () use ($app) {
     return $app->version();
 });

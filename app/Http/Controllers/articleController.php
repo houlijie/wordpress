@@ -47,6 +47,7 @@ class ArticleController extends Controller
     }
 
     public function article($id) {
+        return 222;
         $article = Article::find($id);
         if(!$article){
             return response()->json(['error'=>'article not found']);
