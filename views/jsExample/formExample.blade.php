@@ -6,12 +6,19 @@
 <body language=JavaScript type="text/javascript" onload="window_onload()">
 <form name="form1">
     <p>this is form1</p>
-    <input type="button" name="exampleBtn" value="i am a example btn" onclick="exampleBtn_getClickNum()" onmousedown="exampleBtn_onmousedown()" onmouseover="exampleBtn_onmouseover()" onmouseup="exampleBtn_onmouseup()">
-    <input type="text" name="userName">
-    <input type="textarea" name="userProfile">
-
+    <input type="button" name="exampleBtn"  value="i am a example btn" onclick="exampleBtn_getClickNum()" onmousedown="exampleBtn_onmousedown()" onmouseover="exampleBtn_onmouseover()" onmouseup="exampleBtn_onmouseup()">
+    <input type="text" name="userName" required="required" >
+    <textarea cols="10" rows="4">
+        jjsjshh
+        djsojso
+    </textarea><br>
+    <input type="checkbox" name="deded" value="dwedw" checked>dsdsds<br>
+    <input type="checkbox" name="deded" value="dwedw" checked>dsdsds<br>
+    <input type="checkbox" name="deded" value="dwedw" checked>dsdsds<br>
+    <input type="checkbox" name="sdsd" value="ddsds">dsdsdsdsds<br>
+    <br>
     <input type="submit" value="submit" name="submit">
-    <input type="reset" name="reset" value="reset">
+    <input type="reset" name="reset"  value="reset">
 </form>
 <form name="form2">
     <p>this is form2</p>
