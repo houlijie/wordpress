@@ -82,8 +82,11 @@ $app->middleware([
     // Illuminate\Session\Middleware\StartSession::class,
 ]);
 
+
+
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
+    'test' => App\Http\Middleware\BeforeMiddleware::class,
 ]);
 
 /*
@@ -99,7 +102,10 @@ $app->routeMiddleware([
 
 // $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
+
 $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
+app('Dingo\Api\Transformer\Factory')->register('Article', 'ArticleTransformer');
+
 // $app->register(App\Providers\EventServiceProvider::class);
 
 /*

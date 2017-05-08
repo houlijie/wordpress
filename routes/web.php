@@ -11,13 +11,11 @@ use Illuminate\Http\Response;
 | and give it the Closure to call when that URI is requested.
 |
 */
-
 $api = app('Dingo\Api\Routing\Router');
-$api->version('v1',['namespace'=>'App\Http\Controllers'], function($api) {
-    // $api->group([], function($api) {
+$api->version('v1',['middleware' => 'test','namespace'=>'App\Http\Controllers'], function($api) {
     $api->get('article/{id}', 'ArticleController@article');
-    // $api->post('ar')
-    // })
+    $api->get('articles', 'ArticleController@articleList');
+    
 });
 
 $app->get('/', function () use ($app) {
