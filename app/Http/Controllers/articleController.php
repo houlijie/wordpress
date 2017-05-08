@@ -59,6 +59,7 @@ class ArticleController extends Controller
     public function article($id) {
 
         $article = Article::find($id);
+        // echo "<pre>";print_r($this->response);exit();
         if(!$article){
             //自定义消息和状态码的普通错误
             // return $this->response->error('ddddd', 302);
@@ -76,8 +77,8 @@ class ArticleController extends Controller
             // return $this->response->errorInternal('内部错误');
 
             //未认证错误，可以自定义错误i信息，状态码401
-            return $this->response->errorUnauthorized('未认证');
-            // return response()->json(['error'=>'article not found']);
+            // return $this->response->errorUnauthorized('未认证');
+            return response()->json(['error'=>'article not found']);
         }
 
         //响应一个数组
@@ -126,7 +127,11 @@ class ArticleController extends Controller
          * Dingo\Api\Http\Response::addFormatter('json', new Dingo\Api\Http\Response\Format\Jsonp);
          *
          */   
-        return $this->response->item($article, new ArticleTransformer)
+        // return $this->response->item($article, new ArticleTransformer);
+
+        //生成url
+        $article['url'] = app('Dingo\Api\Routing\UrlGenerator')->version('v1')->route('article.info',[$id]);
+
         return response()->json($article);
     }
 

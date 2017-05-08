@@ -13,10 +13,10 @@ use Illuminate\Http\Response;
 */
 $api = app('Dingo\Api\Routing\Router');
 $api->version('v1',['middleware' => 'test','namespace'=>'App\Http\Controllers'], function($api) {
-    $api->get('article/{id}', 'ArticleController@article');
+    $api->get('article/{id}', ['as' => 'article.info', 'uses' => 'ArticleController@article']);
     $api->get('articles', 'ArticleController@articleList');
-    
 });
+
 
 $app->get('/', function () use ($app) {
     return $app->version();
