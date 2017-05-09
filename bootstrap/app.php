@@ -105,6 +105,10 @@ $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
 $app->register(App\Providers\AppServiceProvider::class);
 
+$app['Dingo\Api\Http\RateLimit\Handler']->extend(function ($app) {
+    return new Dingo\Api\Http\RateLimit\Throttle\Authenticated;
+});
+
 
 // $app->register(App\Providers\EventServiceProvider::class);
 

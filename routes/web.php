@@ -12,7 +12,8 @@ use Illuminate\Http\Response;
 |
 */
 $api = app('Dingo\Api\Routing\Router');
-$api->version('v1', ['middleware' => 'api.auth', 'namespace'=>'App\Http\Controllers'], function($api){
+$api->version('v1', ['middleware' => 'api.throttle', 'limit'=>5, 'expires' =>2, 'namespace'=>'App\Http\Controllers'], function($api){
+
     $api->get('article/{id}', ['as' => 'article.info', 'uses' => 'ArticleController@article']);
     $api->get('articles', 'ArticleController@articleList');
 

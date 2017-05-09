@@ -21,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
         app('Dingo\Api\Auth\Auth')->extend('basic', function ($app) {
            return new \Dingo\Api\Auth\Provider\Basic($app['auth'], 'email');
         });
+
+        
         //在服务提供者中注册视图
     }
 }
