@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 use App\Article;
 use Illuminate\Http\Request;
 use Exception;
+use Event;
+use App\Events\ArticleCreateEvent;
+
 /**
 * 
 */
 class ArticleController extends Controller
 {
     public function createArticle(Request $request) {
-        $article = Article::create($request->all());
+        $article = $request->all();
+        Event::fire(new ArticleCreateEvent($article));
         return response()->json($article);
     }
 
@@ -104,6 +108,12 @@ class ArticleController extends Controller
 
         //添加单个meta信息
         // return $this->response->item($article, new ArticleTransformer)->addMeta('testmeta', 'testmeta');
+
+        //分页添加meta信息
+        // return $this->response->paginator(Article::paginate(2), new ArticleTransformer);
+
+        //获取全部数据并添加meta头
+        return $this->response->collection(Article::all(), new ArticleTransformer)->addMeta('ddddd','ddd');
 
         /**
             //设置多个meta信息,替代调用多次addMeta方法
