@@ -20,13 +20,62 @@ $api->version('v1', ['middleware' => 'api.throttle', 'limit'=>5, 'expires' =>2, 
     $api->get('articles', 'ArticleController@articleList');
 
     $api->post('article', 'ArticleController@createArticle');
+    $api->get('home', 'HomeController@index');
 });
 
 //内部调用api方式二
-$app->get('home', function() use  ($dispatcher) {
-    $articles = $dispatcher->get('api/articles');
-    return view('jsExample.formExample')->with('articles', $articles);
-});
+// $app->get('home', function() use  ($dispatcher) {
+//     //1、直接返回
+//     // $articles = $dispatcher->get('api/articles');
+//     // return view('jsExample.formExample')->with('articles', $articles);
+
+//     //11、异常
+//     try
+//     {
+//         $dispatcher->get('api/articles');
+//     }catch(Dingo\Api\Exception\InternalHttpException $e)
+//     {
+//         $response = $e->getResponse();
+//     }
+
+//     //2、sending along data
+//     // $dispatcher->with(['name'=>'json', 'age'=>13])->post('article');
+//     //等同于：
+//     // $dispatcher->post('article',['name'=>'json', 'age'=>13]);
+
+//     // 3、指定特定的版本
+//     $dispatcher->version('v2')->get('articles');
+//     //4、指定特定的域名
+//     $dispatcher->on('api.example.com')->get('articles');
+//     //5、添加上传文件
+//     $dispatcher->attach(Input::files())->post('article');
+//     //6、传递一个文件路径的数组，数组的key是文件的id
+//     $dispatcher->attach(['photos' => url('images/lumen.jpg')])->post('article');
+//     //7、传递一个文件路径数据和meta数据
+//     $dispatcher->attach([
+//         'photo' => [
+//             'path' => url('images/lumen.jpg'),
+//             'mime' => 'image/jpeg',
+//             'size' => '49430',
+//         ],
+//     ])->post('article');
+
+//     //8、发送json数据
+//     $data = [
+//         'name' => 'json',
+//         'age' => '13',
+//     ];
+//     $dispatcher->json($data)->post('article');
+
+//     //9、伪装成认证用户
+//     $dispatcher->be(auth()->user())->get('article');
+
+//     //9、伪装成认证用户,如果想为一个请求添加认证用户
+//     $dispatcher->be(auth()->user())->once()->get('article');
+
+//     //10、取回原始响应对象
+//     $response = $dispatcher->raw()->get('article');
+// });
 
 
 $app->get('/', function () use ($app) {

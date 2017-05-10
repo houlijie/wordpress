@@ -8,8 +8,7 @@ class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
-     * @return void
+     * 
      */
     public function __construct()
     {
@@ -19,6 +18,11 @@ class HomeController extends Controller
     public function index()
     {
         //内部调用api方式二
+        /**
+         * Create a new controller instance.
+         * @request({"id":"1", "age": "13"}, headers={"x-Custom":"dddd"}, identifier="homeIndex")
+         * 
+         */
         $articles = $this->api->get('articles');
 
         return view('jsExample.formExample');

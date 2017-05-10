@@ -8,10 +8,30 @@ use Event;
 use App\Events\ArticleCreateEvent;
 
 /**
-* 
+* article resource representation
+* @Resource("articles", uri="/api")
 */
 class ArticleController extends Controller
 {
+    /**
+     * Create article
+     *
+     * get a json response
+     * 
+     * @Post("/article")
+     * @Version({"v1"})
+     * @request({"username":"json", "age": "13"}, headers={"x-Custom":"dddd"}, identifier="testddd")
+     * @Response(200, body={"username":"json"})
+     * @transaction({
+     *    @request({"username":"json", "age":"13"}),
+     *    @response(200, body={"id":1,"username":"json"}),
+     *    @response(422, body={"error":{"dsdhsdsd"}})
+     * })
+     * @parameters({
+     *      @parameter("username", description="name of user", default="json")
+     * })
+     *
+     */
     public function createArticle(Request $request) {
         $article = $request->all();
         Event::fire(new ArticleCreateEvent($article));
