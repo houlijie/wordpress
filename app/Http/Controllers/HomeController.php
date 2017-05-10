@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
+
 class HomeController extends Controller
 {
     /**
@@ -16,6 +18,9 @@ class HomeController extends Controller
 
     public function index()
     {
+        //内部调用api方式二
+        $articles = $this->api->get('articles');
+
         return view('jsExample.formExample');
     }
 

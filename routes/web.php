@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Response;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,6 +13,7 @@ use Illuminate\Http\Response;
 |
 */
 $api = app('Dingo\Api\Routing\Router');
+$dispatcher = app('Dingo\Api\Dispatcher');
 $api->version('v1', ['middleware' => 'api.throttle', 'limit'=>5, 'expires' =>2, 'namespace'=>'App\Http\Controllers'], function($api){
 
     $api->get('article/{id}', ['as' => 'article.info', 'uses' => 'ArticleController@article']);
@@ -20,12 +22,18 @@ $api->version('v1', ['middleware' => 'api.throttle', 'limit'=>5, 'expires' =>2, 
     $api->post('article', 'ArticleController@createArticle');
 });
 
+//内部调用api方式二
+$app->get('home', function() use  ($dispatcher) {
+    $articles = $dispatcher->get('api/articles');
+    return view('jsExample.formExample')->with('articles', $articles);
+});
+
 
 $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->get('home', 'HomeController@index');
+// $app->get('home', 'HomeController@index');
 
 $app->get('user/create', 'userController@create');
 $app->post('user/store', 'userController@store');
