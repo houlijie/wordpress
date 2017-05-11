@@ -16,6 +16,10 @@
     <input type="checkbox" name="deded" value="dwedw" checked>dsdsds<br>
     <input type="checkbox" name="deded" value="dwedw" checked>dsdsds<br>
     <input type="checkbox" name="sdsd" value="ddsds">dsdsdsdsds<br>
+    <select name="theDay">
+        <option value="mon">i星期天</option>
+        <option value="sa">i星期二</option>
+    </select>
     <br>
     <input type="submit" value="submit" name="submit">
     <input type="reset" name="reset"  value="reset">
@@ -54,6 +58,8 @@
     {
         document.form1.exampleBtn.value = "thank you!";
     }
+
+    console.log(document.form1.theDay.options[0].value);
 
 </script>
 </html>
