@@ -82,7 +82,11 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
+
 $app->get('home', 'HomeController@index');
+$app->get('menu', 'HomeController@menu');
+$app->get('LowerWindow', 'HomeController@lowerWindow');
+$app->get('UpperWindow', 'HomeController@upperWindow');
 
 $app->get('user/create', 'userController@create');
 $app->post('user/store', 'userController@store');

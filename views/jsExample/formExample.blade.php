@@ -17,12 +17,17 @@
     <input type="checkbox" name="deded" value="dwedw" checked>dsdsds<br>
     <input type="checkbox" name="sdsd" value="ddsds">dsdsdsdsds<br>
     <select name="theDay">
-        <option value="mon">i星期天</option>
-        <option value="sa">i星期二</option>
+        <option value="mon">星期一</option>
+        <option value="thu">星期二</option>
+        <option value="wens">星期三</option>
+        <option value="thir">星期四</option>
+        <option value="fir">星期五</option>
+        <option value="sat">星期六</option>
+        <option name="sun" value="sun">星期日</option>
     </select>
     <br>
-    <input type="submit" value="submit" name="submit">
-    <input type="reset" name="reset"  value="reset">
+    <input type="button" value="add sunday" name="addSun" onclick="sun_add()">
+    <input type="button" name="delSun"  value="del sunday" onclick="sun_del()">
 </form>
 <form name="form2">
     <p>this is form2</p>
@@ -33,6 +38,17 @@
 
 </body>
 <script type="text/javascript">
+
+    function sun_add(){
+        var sunOption = new Option('星期天', 'sun');
+        document.form1.theDay.options[6] = sunOption;
+    }
+
+    function sun_del()
+    {
+        console.log(document.form1.theDay.options.sun);
+        document.form1.theDay.options[6] = null;
+    }
     function window_onload() {
         var numberForms = document.forms.length;
         for(var formIndex=0; formIndex < numberForms; formIndex++){
