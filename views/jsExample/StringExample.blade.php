@@ -29,7 +29,7 @@
     document.write(myName.substr(1, 3));  //ual
 
     // 6. toLowerCase() && toUpperCase()  --转换字母大小写
-    document.write(myName.toUpperCase());
+    document.write(myName.toUpperCase() + "<br />");
 
 </script>
 </html>
