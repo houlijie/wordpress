@@ -9,7 +9,7 @@ use Crypt;
 use App\User;
 use DB;
 use Event;
-use Illuminate\Session;
+use Illuminate\Support\Facades\Session;
 use Validator;
 
 class userController extends Controller
@@ -77,12 +77,12 @@ class userController extends Controller
      *
      */
     public function userInfo(Request $request, $userId) {
-        // $value = session('user_'.$userId);
-        $value = $request->session()->get('user_'.$userId);
+        $value = session('user_'.$userId);
+        // $value = $request->session()->get('user_'.$userId);
         // var_dump($value);exit();
-        if($request->session()->has('user_'.$userId)){
-            session(['user_'.$userId => $userId]);
-        }
+        // if($request->session()->has('user_'.$userId)){
+        //     session(['user_'.$userId => $userId]);
+        // }
 
         return User::findorFail($userId);
     }

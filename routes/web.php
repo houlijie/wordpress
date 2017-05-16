@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cache;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,7 +92,10 @@ $app->get('UpperWindow', 'HomeController@upperWindow');
 $app->get('user/create', 'userController@create');
 $app->post('user/store', 'userController@store');
 
-$app->get('user/{id}', ['uses'=>'userController@userInfo']);
+// $app->get('user/{id}', ['uses'=>'userController@userInfo']);
+$app->get('user/{id}', function () {
+    return Cache::get('key');
+});
 
 $app->get('updateUserPwd/{id}', 'userController@updateUserPwd');
 

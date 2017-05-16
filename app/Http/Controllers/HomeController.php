@@ -59,7 +59,7 @@ class HomeController extends Controller
          */
         $articles = $this->api->get('articles');
 
-        return view('jsExample.TopWindow');
+        return view('jsExample.timeExample');
     }
 
     public function upperWindow() {
