@@ -28,6 +28,11 @@ $api->version('v1', ['namespace'=>'App\Http\Controllers'], function($api){
     $api->get('/csstest', ['as' => 'css.index', 'uses' => 'CssController@index']);
 });
 
+$api->version('v1', ['namespace'=>'src\DesignPatterns'], function($api){
+    // var_export(class_exists('src\DesignPatterns\TestController'));exit();
+    $api->get('/patterns/factory', ['as' => 'abstract.factory.index', 'uses' => 'PatternsController@factoryTest']);
+});
+
 $api->version('v1', ['namespace'=>'App\Http\Controllers'], function($api){
     $api->get('/phptest/closer', ['as' => 'php.test.closer.test', 'uses' => 'PhpTestController@testCloser']);
     $api->get('/phptest/dognum', ['as' => 'php.test.dog.num.get', 'uses' => 'PhpTestController@getDogNum']);
