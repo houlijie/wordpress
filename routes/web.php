@@ -24,6 +24,17 @@ $api->version('v1', ['middleware' => 'api.throttle', 'limit'=>5, 'expires' =>2, 
     $api->get('home', 'HomeController@index');
 });
 
+$api->version('v1', ['namespace'=>'App\Http\Controllers'], function($api){
+    $api->get('/csstest', ['as' => 'css.index', 'uses' => 'CssController@index']);
+});
+
+$api->version('v1', ['namespace'=>'App\Http\Controllers'], function($api){
+    $api->get('/phptest/closer', ['as' => 'php.test.closer.test', 'uses' => 'PhpTestController@testCloser']);
+    $api->get('/phptest/dognum', ['as' => 'php.test.dog.num.get', 'uses' => 'PhpTestController@getDogNum']);
+});
+
+
+
 //内部调用api方式二
 // $app->get('home', function() use  ($dispatcher) {
 //     //1、直接返回
