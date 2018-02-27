@@ -13,6 +13,9 @@ use src\DesignPatterns\SimpleFactory\ConcreteFactory;
 use src\DesignPatterns\Adapter\Book;
 use src\DesignPatterns\Adapter\EBookAdapter;
 use src\DesignPatterns\Adapter\Kindle;
+use src\DesignPatterns\Bridge\Car;
+use src\DesignPatterns\Bridge\Workshop;
+
 
 class PatternsController
 {
@@ -56,7 +59,11 @@ class PatternsController
     var_export($book->open());
     $book = new EBookAdapter(new Kindle());
     var_export($book->open());
+  }
 
-
+  public function bridgeTest()
+  {
+    $car = new car();
+    var_export($car->manufacture());
   }
 }
