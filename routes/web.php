@@ -31,6 +31,10 @@ $api->version('v1', ['namespace'=>'App\Http\Controllers'], function($api){
 $api->version('v1', ['namespace'=>'src\DesignPatterns'], function($api){
     // var_export(class_exists('src\DesignPatterns\TestController'));exit();
     $api->get('/patterns/factory', ['as' => 'abstract.factory.index', 'uses' => 'PatternsController@factoryTest']);
+    $api->get('/patterns/prototype', ['as' => 'prototype.index', 'uses' => 'PatternsController@prototypeTest']);
+    $api->get('/patterns/singleton', ['as' => 'singleton.index', 'uses' => 'PatternsController@singletonTest']);
+    $api->get('/patterns/simpleFactory', ['as' => 'simple.factory.index', 'uses' => 'PatternsController@simpleFactoryTest']);
+    $api->get('/patterns/abstract', ['as' => 'abstract.index', 'uses' => 'PatternsController@abstractTest']);
 });
 
 $api->version('v1', ['namespace'=>'App\Http\Controllers'], function($api){
