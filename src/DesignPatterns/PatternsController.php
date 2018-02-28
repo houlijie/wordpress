@@ -18,12 +18,23 @@ use src\DesignPatterns\Bridge\Workshop;
 use src\DesignPatterns\Composite\Form;
 use src\DesignPatterns\Composite\InputElement;
 use src\DesignPatterns\Composite\TextElement;
+use src\DesignPatterns\Decorator\Webservice;
+use src\DesignPatterns\Decorator\Decorator;
+use src\DesignPatterns\Decorator\RenderInXml;
+use src\DesignPatterns\Decorator\RenderInJson;
 
 class PatternsController
 {
   public function index()
   {
     echo "strin3g";
+  }
+
+  public function decoratorTest()
+  {
+    $webservice = new Webservice('<?xml version="1.0"?><foo>bar</foo>');
+    // $webservice = new RenderInJson($webservice);
+    var_export($webservice->renderData());
   }
 
   public function compositeTest()
