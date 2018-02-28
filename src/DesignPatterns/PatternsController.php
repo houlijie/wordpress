@@ -15,13 +15,27 @@ use src\DesignPatterns\Adapter\EBookAdapter;
 use src\DesignPatterns\Adapter\Kindle;
 use src\DesignPatterns\Bridge\Car;
 use src\DesignPatterns\Bridge\Workshop;
-
+use src\DesignPatterns\Composite\Form;
+use src\DesignPatterns\Composite\InputElement;
+use src\DesignPatterns\Composite\TextElement;
 
 class PatternsController
 {
   public function index()
   {
     echo "strin3g";
+  }
+
+  public function compositeTest()
+  {
+    $form = new Form();
+    $form->addElement(new InputElement());
+    $form->addElement(new TextElement());
+    $embed = clone $form;
+    $form->addElement($embed);
+
+    var_export($form->render());
+    
   }
 
   public function factoryTest()
@@ -66,4 +80,6 @@ class PatternsController
     $car = new car();
     var_export($car->manufacture());
   }
+
+
 }

@@ -36,6 +36,7 @@ $api->version('v1', ['namespace'=>'src\DesignPatterns'], function($api){
     $api->get('/patterns/simpleFactory', ['as' => 'simple.factory.index', 'uses' => 'PatternsController@simpleFactoryTest']);
     $api->get('/patterns/abstract', ['as' => 'abstract.index', 'uses' => 'PatternsController@abstractTest']);
     $api->get('/patterns/bridge', ['as' => 'bridge.index', 'uses' => 'PatternsController@bridgeTest']);
+    $api->get('/patterns/composite', ['as' => 'composite.index', 'uses' => 'PatternsController@compositeTest']);
 });
 
 $api->version('v1', ['namespace'=>'App\Http\Controllers'], function($api){
