@@ -30,6 +30,11 @@ class PatternsController
     echo "strin3g";
   }
 
+  public function mediatorTest()
+  {
+      # code...
+  }
+
   public function decoratorTest()
   {
     $webservice = new Webservice('<?xml version="1.0"?><foo>bar</foo>');
