@@ -23,11 +23,22 @@ use src\DesignPatterns\Decorator\Decorator;
 use src\DesignPatterns\Decorator\RenderInXml;
 use src\DesignPatterns\Decorator\RenderInJson;
 
+
+use src\DesignPatterns\Observer\User;
+use src\DesignPatterns\Observer\UserObserver;
+
 class PatternsController
 {
   public function index()
   {
     echo "strin3g";
+  }
+
+  public function observerTest()
+  {
+    $user = new User();
+    $user->attach(new UserObserver());
+    var_export($user->notify());
   }
 
   public function mediatorTest()

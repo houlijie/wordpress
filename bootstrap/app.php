@@ -80,7 +80,9 @@ unset($app->availableBindings['redis']);
 
 $app->middleware([
     // Illuminate\Session\Middleware\StartSession::class,
+    // App\Http\Middleware\VerifyCsrfToken::class,
 ]);
+
 
 
 
@@ -104,10 +106,13 @@ $app->routeMiddleware([
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
 $app->register(App\Providers\AppServiceProvider::class);
+$app->register(Illuminate\Session\SessionServiceProvider::class);
 
 $app['Dingo\Api\Http\RateLimit\Handler']->extend(function ($app) {
     return new Dingo\Api\Http\RateLimit\Throttle\Authenticated;
 });
+
+$app->configure('session');
 
 
 // $app->register(App\Providers\EventServiceProvider::class);
