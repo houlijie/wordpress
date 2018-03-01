@@ -29,6 +29,12 @@ use src\DesignPatterns\Observer\UserObserver;
 
 class PatternsController
 {
+
+    public function __invoke()
+    {
+
+        echo "333";
+    }
   public function index()
   {
     echo "strin3g";

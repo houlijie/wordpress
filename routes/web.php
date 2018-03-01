@@ -42,8 +42,13 @@ $api->version('v1', ['namespace'=>'src\DesignPatterns'], function($api){
     $api->get('/patterns/observer', ['as' => 'observer.index', 'uses' => 'PatternsController@observerTest']);
 });
 
+$api->version('v1', ['namespace'=>'src\NewFeature'], function($api){
+    $api->get('/newfeature/closer', ['as' => 'php.new.feature.closer', 'uses' => 'HomeController@closerTest']);
+    $api->get('/newfeature/yield', ['as' => 'php.new.feature.yield', 'uses' => 'HomeController@yieldTest']);
+});
+
 $api->version('v1', ['namespace'=>'src\Session'], function($api){
-    $api->get('/session/index', ['as' => 'php.test.closer.test', 'uses' => 'SessionController@index']);
+    $api->get('/session/index', ['as' => 'php.test.closer.test', 'uses' => 'HomeController@index']);
 });
 
 $api->version('v1', ['namespace'=>'App\Http\Controllers'], function($api){
