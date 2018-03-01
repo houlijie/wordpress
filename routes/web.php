@@ -39,6 +39,11 @@ $api->version('v1', ['namespace'=>'src\DesignPatterns'], function($api){
     $api->get('/patterns/composite', ['as' => 'composite.index', 'uses' => 'PatternsController@compositeTest']);
     $api->get('/patterns/decorator', ['as' => 'decorator.index', 'uses' => 'PatternsController@decoratorTest']);
     $api->get('/patterns/mediator', ['as' => 'mediator.index', 'uses' => 'PatternsController@mediatorTest']);
+    $api->get('/patterns/observer', ['as' => 'observer.index', 'uses' => 'PatternsController@observerTest']);
+});
+
+$api->version('v1', ['namespace'=>'src\Session'], function($api){
+    $api->get('/session/index', ['as' => 'php.test.closer.test', 'uses' => 'SessionController@index']);
 });
 
 $api->version('v1', ['namespace'=>'App\Http\Controllers'], function($api){
