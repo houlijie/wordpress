@@ -14,19 +14,6 @@ class PhpTestController extends Controller
 	 */
 	public function getElevationMap()
 	{
-		$result = 0;
-		$height = [0,1,0,2,1,0,1,3,2,1,2,1];
-		foreach ($height as $k => $v) {
-			if( $k == 0 && $v == 0) {
-				continue;
-			} else {
-				$result = $
-
-			}
-			 
-		}
-
-		return $result;
 	}
 
 	/**
@@ -38,8 +25,7 @@ class PhpTestController extends Controller
 		$b = $c = 1;
 		$d = $s =2;
 		$a = function($b, $c) use ($d, $s) {
-			var_export([$d,$s]);exit();
-
+			var_export([$d,$s]);
 		};
 		$a(2,4);
 		echo preg_replace_callback('~-([a-z])~', function ($match) {

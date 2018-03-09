@@ -28,6 +28,29 @@ $api->version('v1', ['namespace'=>'App\Http\Controllers'], function($api){
     $api->get('/csstest', ['as' => 'css.index', 'uses' => 'CssController@index']);
 });
 
+$api->version('v1', ['namespace'=>'src\DesignPatterns'], function($api){
+    // var_export(class_exists('src\DesignPatterns\TestController'));exit();
+    $api->get('/patterns/factory', ['as' => 'abstract.factory.index', 'uses' => 'PatternsController@factoryTest']);
+    $api->get('/patterns/prototype', ['as' => 'prototype.index', 'uses' => 'PatternsController@prototypeTest']);
+    $api->get('/patterns/singleton', ['as' => 'singleton.index', 'uses' => 'PatternsController@singletonTest']);
+    $api->get('/patterns/simpleFactory', ['as' => 'simple.factory.index', 'uses' => 'PatternsController@simpleFactoryTest']);
+    $api->get('/patterns/abstract', ['as' => 'abstract.index', 'uses' => 'PatternsController@abstractTest']);
+    $api->get('/patterns/bridge', ['as' => 'bridge.index', 'uses' => 'PatternsController@bridgeTest']);
+    $api->get('/patterns/composite', ['as' => 'composite.index', 'uses' => 'PatternsController@compositeTest']);
+    $api->get('/patterns/decorator', ['as' => 'decorator.index', 'uses' => 'PatternsController@decoratorTest']);
+    $api->get('/patterns/mediator', ['as' => 'mediator.index', 'uses' => 'PatternsController@mediatorTest']);
+    $api->get('/patterns/observer', ['as' => 'observer.index', 'uses' => 'PatternsController@observerTest']);
+});
+
+$api->version('v1', ['namespace'=>'src\NewFeature'], function($api){
+    $api->get('/newfeature/closer', ['as' => 'php.new.feature.closer', 'uses' => 'HomeController@closerTest']);
+    $api->get('/newfeature/yield', ['as' => 'php.new.feature.yield', 'uses' => 'HomeController@yieldTest']);
+});
+
+$api->version('v1', ['namespace'=>'src\Session'], function($api){
+    $api->get('/session/index', ['as' => 'php.test.closer.test', 'uses' => 'HomeController@index']);
+});
+
 $api->version('v1', ['namespace'=>'App\Http\Controllers'], function($api){
     $api->get('/phptest/closer', ['as' => 'php.test.closer.test', 'uses' => 'PhpTestController@testCloser']);
     $api->get('/phptest/dognum', ['as' => 'php.test.dog.num.get', 'uses' => 'PhpTestController@getDogNum']);
